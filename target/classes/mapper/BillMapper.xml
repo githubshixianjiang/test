@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzd.gxzd.mapper.BillMapper">
+    <select id="sumPrice" resultType="int">
+        select sum(price)
+        from bill
+        where bill_name_id = #{billNameId}
+          and status = #{status}
+    </select>
+
+    <select id="typePrice" resultType="java.lang.Integer">
+        select sum(price)
+        from bill
+        where bill_name_id = #{billNameId}
+        and status = #{status}
+        and type = #{type}
+    </select>
+
+    <select id="countByBill" resultType="int">
+        select count(id)
+        from bill
+        where bill_name_id = #{billNameId}
+    </select>
+</mapper>

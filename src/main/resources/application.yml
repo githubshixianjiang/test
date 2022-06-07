@@ -1,0 +1,51 @@
+# 服务器端口
+server:
+  port: 8019
+  servlet:
+    context-path:
+
+#服务名
+spring:
+  application:
+    name: gxzd
+  #    返回json的全局时间格式
+  jackson:
+#    serialization: { WRITE_DATES_AS_TIMESTAMPS: true }
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+      default-property-inclusion: non_null
+
+    #    配置redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    connect-timeout: 1800
+    #    最大阻塞等待时间
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        #   最小空闲
+        max-idle: 5
+        min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 100000000
+      max-request-size: 100000000
+
+  # mysql数据库链接
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.99.85.141:3306/gxzd?serverTimezone=GMT%2B8
+    username: gxzd
+    password: gxzd123
+
+
+mybatis-plus:
+  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+
+
